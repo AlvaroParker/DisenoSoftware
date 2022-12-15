@@ -31,7 +31,7 @@ function element(bool, addE, formState, setFormState) {
             <div className="card">
               <div className="card-body p-5">
                 <h2 className="text-uppercase text-center mb-5">Agregar Juego</h2>
-                <h5 className="text-uppercase text-center mb-5 text-success">{bool && <>Evento creado</>}</h5>
+                <h5 className="text-uppercase text-center mb-5 text-success">{bool && <>JUEGO AGREGADO</>}</h5>
                 <form id="mainForm" onSubmit={e => {
                   e.preventDefault();
                   addE({
