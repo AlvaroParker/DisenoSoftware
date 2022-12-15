@@ -10,8 +10,8 @@ query getEVentos {
     titulo,
     descripcion,
     imagen
-    lugar
-    fecha
+    plataforma
+    lanzamiento
   }
 }
 `;
@@ -26,12 +26,13 @@ function App() {
     700: 2,
     500: 1
   };
-  var items = data.getEventos.map(({ titulo, descripcion, imagen, lugar, fecha }) => {
+  var items = data.getEventos.map(({ titulo, descripcion, imagen, plataforma, lanzamiento }) => {
     return (
       <div className='card text-center'>
         <div className='card-body'>
           <h4 className='card-title'>{titulo}</h4>
-          <h6 className="card-subtitle mb-2 text-muted">{fecha} en {lugar}</h6>
+          <h6 className="card-subtitle mb-2 text-muted">Lanzado el {lanzamiento}</h6>
+          <h6 className='card-subtitle mb-2 text-muted'>Disponible en {plataforma}</h6>
           <p className='card-text justify-content-center'>{descripcion}</p>
           <img className='card-img-bottom w-100'
             src={process.env.PUBLIC_URL + "./static/images/" + imagen}

@@ -7,7 +7,7 @@ function Navbar() {
       <div className="container-fluid justify-content-center">
 
         <div className="navbar-nav mb-2 mb-lg-0">
-          <span className="nav-item">EVENTOS</span>
+          <span className="nav-item">VIDEO JUEGOS</span>
         </div>
       </div>
     </nav>)

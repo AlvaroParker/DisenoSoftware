@@ -8,16 +8,16 @@ const ADD_EVENTO = gql`
     $titulo: String!
     $descripcion: String!
     $imagen: String!
-    $lugar: String!
-    $fecha: String!
+    $plataforma: String!
+    $lanzamiento: String!
   ) {
-      addEvento(input: {titulo: $titulo, descripcion: $descripcion, imagen: $imagen, lugar: $lugar, fecha: $fecha}) {
+      addEvento(input: {titulo: $titulo, descripcion: $descripcion, imagen: $imagen, plataforma: $plataforma, lanzamiento: $lanzamiento}) {
         id
         titulo
         descripcion
         imagen
-        lugar
-        fecha
+        plataforma
+        lanzamiento
       }
   }
 `
@@ -30,7 +30,7 @@ function element(bool, addE, formState, setFormState) {
           <div className="col-12 col-md-9 col-lg-7 col-xl-6">
             <div className="card">
               <div className="card-body p-5">
-                <h2 className="text-uppercase text-center mb-5">Agregar Evento</h2>
+                <h2 className="text-uppercase text-center mb-5">Agregar Juego</h2>
                 <h5 className="text-uppercase text-center mb-5 text-success">{bool && <>Evento creado</>}</h5>
                 <form id="mainForm" onSubmit={e => {
                   e.preventDefault();
@@ -39,11 +39,11 @@ function element(bool, addE, formState, setFormState) {
                       titulo: formState.titulo,
                       descripcion: formState.descripcion,
                       imagen: formState.imagen,
-                      lugar: formState.lugar,
-                      fecha: formState.fecha.toString()
+                      plataforma: formState.plataforma,
+                      lanzamiento: formState.lanzamiento.toString()
                     }
                   })
-                  setFormState({ titulo: "", descripcion: "", imagen: "", lugar: "", fecha: "" });
+                  setFormState({ titulo: "", descripcion: "", imagen: "", plataforma: "", lanzamiento: "" });
                 }}>
 
                   <div className="form-outline mb-4">
@@ -69,17 +69,17 @@ function element(bool, addE, formState, setFormState) {
 
 
                   <div className="form-outline mb-4">
-                    <input type="text" className="form-control form-control-lg" value={formState.lugar} onChange={e => {
-                      setFormState({ ...formState, lugar: e.target.value })
+                    <input type="text" className="form-control form-control-lg" value={formState.plataforma} onChange={e => {
+                      setFormState({ ...formState, plataforma: e.target.value })
                     }} required={true} />
-                    <label className="form-label" >LUGAR</label>
+                    <label className="form-label" >PLATAFORMA</label>
                   </div>
 
                   <div className="form-outline mb-4">
-                    <input type="date" className="form-control form-control-lg" value={formState.fecha} onChange={e => {
-                      setFormState({ ...formState, fecha: e.target.value })
+                    <input type="date" className="form-control form-control-lg" value={formState.lanzamiento} onChange={e => {
+                      setFormState({ ...formState, lanzamiento: e.target.value })
                     }} required={true} />
-                    <label className="form-label" >Fecha</label>
+                    <label className="form-label" >LANZAMIENTO</label>
                   </div>
 
                   <div className="d-flex justify-content-center">
@@ -105,8 +105,8 @@ export default function AddEvento() {
     titulo: String,
     descripcion: String,
     imagen: String,
-    lugar: String,
-    fecha: Date
+    plataforma: String,
+    lanzamiento: Date
   });
   if (loading) return (<p>Cargando...</p>)
   if (error) return (<p>Error</p>)
