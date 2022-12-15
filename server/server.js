@@ -15,11 +15,15 @@ type Evento{
   titulo: String!
   descripcion: String!
   imagen: String!
+  lugar: String!
+  fecha: String!
 }
 input EventoInput{
   titulo: String!
   descripcion: String!
   imagen: String!
+  lugar: String!
+  fecha: String!
 }
 type Query {
   getEventos: [Evento]
